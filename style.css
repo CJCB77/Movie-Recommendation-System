@@ -1,0 +1,147 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 10px;
+}
+
+:root {
+  --navy-blue:#1A374D;
+  --blue:#406882;
+  --light-blue:#406882;
+  --lighter-blue:#B1D0E0;
+  --white:#F5F5F5;
+  --orange:#FA9F0C;
+  --red:#F05454;
+  --green:#34BE82;
+}
+
+nav {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--navy-blue);
+  padding: 2rem;
+  padding-top: 2.5rem;
+
+}
+
+.logo {
+  width: 25%;
+  display: flex;
+  align-items: center;
+
+}
+
+.logo-img {
+  height: 4.5rem;
+  transform: rotate(-15deg);
+  margin-bottom: 1rem;
+}
+.logo-title{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  font-weight: 600;
+  z-index: 1;
+}
+
+nav ul {
+  font-family: 'Work Sans', sans-serif;
+  list-style: none;
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  font-size: 2.2rem;
+  font-weight: 400;
+ 
+}
+
+nav ul li{
+  margin: 0 1.2rem;
+}
+
+.search-form{
+  width: 25%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.2rem;
+ 
+}
+.search-form input{
+  width: 15rem;
+  border: none;
+  margin-right: 0.5rem;
+  border-radius: 1rem;
+  padding:  0 1.5rem;
+}
+
+.search-form button{
+  border: none;
+  border-radius: 1rem;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  padding: 0.8rem 0.4rem;
+  background-color: var(--light-blue);
+  color: var(--white);
+  cursor: pointer;
+
+}
+
+.movies {
+  background-color: var(--lighter-blue);
+  display: grid;
+  padding: 15rem 10rem;
+  grid-template-columns: repeat(3,1fr);
+  column-gap: 3rem;
+  row-gap: 3rem;
+}
+
+@media (max-width:1200px) {
+  .movies {
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+.card{
+  background-color: var(--light-blue);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 30rem;
+  border-radius: 1rem;
+  justify-self: center;
+}
+
+.card footer{
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.8rem;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  height: 10rem;
+  justify-content: space-between;
+}
+
+.movie-img{
+  border-radius: 1rem 1rem 0 0;
+
+}
+
+.card h3{
+  font-weight: 600;
+  font-size: 2rem; 
+  margin: 1rem 2rem;
+}
+
+.card p {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  align-self: center;
+}
