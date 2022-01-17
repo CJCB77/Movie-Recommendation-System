@@ -2,7 +2,7 @@ const movieSection = document.getElementById("movies")
 
 const API_KEY = "3e72b72e4191aec0b1fce161339bc177"
 const BASE_URL = "https://api.themoviedb.org/3"
-const IMG_PATH = "https://image.tmdb.org/t/p/w300"
+const IMG_PATH = "https://image.tmdb.org/t/p/w500"
 
 
 let queryMovies = BASE_URL + `/discover/movie?api_key=${API_KEY}&language=en-US&
@@ -28,6 +28,10 @@ async function getActors(movie_id) {
             let main_actors = data.cast.slice(0,4)
             return main_actors
         })
+        .catch((error) => {
+            console.log(error)
+        })
+    
 }
 
 
@@ -41,20 +45,23 @@ fetch(queryMovies)
         }
     })
     .then(data => {
-        for(let movie of data.results){
-            getActors(movie.id).then(actor =>{
-                console.log(actor)
-            })
+        for(let movie of data.results){         
             let card = document.createElement("article")
             card.classList.add("card")
             card.innerHTML =`
-                            <header>
-                              <img src="${IMG_PATH  + movie.backdrop_path}" class="movie-img"alt="movie poster">
-                              <h3>${movie.title}</h3>
-                            </header>
-                            <footer>
-                              <p class="score">${movie.vote_average}</p>
-                            </footer>
+                            <div class="card__main">
+                                <header>
+                                <img src="${IMG_PATH  + movie.backdrop_path}" class="movie-img"alt="movie poster">
+                                </header>
+                                <footer>
+                                <h3>${movie.title}</h3>
+                                <p class="score">${movie.vote_average}</p>
+                                </footer>
+                            </div>
+                            <div class="card__info">
+                             
+                                <p>${movie.overview}</p>
+                            </div>
                             `
             movieSection.append(card)
          }
